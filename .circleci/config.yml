@@ -19,7 +19,7 @@ workflows:
 
 jobs:
   build:
-    working_directory: ~/SundayGroupApp
+    working_directory: ~/MondayApp
     docker:
       - image: circleci/node:10.16.3
     steps:
@@ -72,4 +72,4 @@ jobs:
       - run:
           name: deploy-application
           command: |
-            ssh -p 5454 -o StrictHostKeyChecking=no groupca@ec2-16-16-79-93.eu-north-1.compute.amazonaws.com "export SERVER=\"${SERVER}\"; export IMAGE_NAME=\"${IMAGE_NAME}\"; export PRIVATE_KEY=\"${PRIVATE_KEY}\"; rm -rf ~/SundayGroupApp/; git clone https://github.com/DMLFrancis/SundayGroupApp.git; source SundayGroupApp/deploy.sh"
+            ssh -p 5454 -o StrictHostKeyChecking=no groupca@ec2-13-53-184-223.eu-north-1.compute.amazonaws.com "export SERVER=\"${SERVER}\"; export IMAGE_NAME=\"${IMAGE_NAME}\"; export PRIVATE_KEY=\"${PRIVATE_KEY}\"; rm -rf ~/MondayApp/; git clone https://github.com/DMLFrancis/MondayApp.git; source MondayApp/deploy.sh"
